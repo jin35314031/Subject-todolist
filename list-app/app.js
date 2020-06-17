@@ -20,6 +20,7 @@ app.get('/index', (req, res) => {
   connection.query(
     'SELECT * FROM items',
     (error, results) => {
+      console.log(results);
       res.render('index.ejs', {items: results});
     }
   );
@@ -70,6 +71,18 @@ app.post('/update/:id', (req, res) => {
   );
   // 以下の一覧画面へリダイレクトする処理を削除してください
  
+});
+
+//done
+app.post('/done/:id', (req, res) => {
+  console.log(req.params.id);
+  connection.query(
+    'UPDATE items SET flag = ? WHERE id = ?',
+    ['1',req.params.id],
+    (error, results) => {
+      res.redirect('/index'); 
+    }
+  );
 });
 
 app.listen(3000);

@@ -2,20 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>LIST APP</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/send_url.js"></script>
   </head>
   <body>
     <header>
-      <a href="/" class="header-logo">LIST APP</a>
+      <a href="/" class="header-logo">Todo List</a>
     </header>
     <div class="container">
       <div class="container-header">
-        <h1>買い物リスト作成</h1>
+        <h1>新規作成</h1>
       </div>
       <div class="item-form-wrapper">
-        <p class="form-label">買うもの</p>
+        <p class="form-label">New Task
+        </p>
         <form action="/create" method="post">
           <input type="text" name="itemName">
           <input type="submit" value="作成する">
