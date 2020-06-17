@@ -22,7 +22,7 @@
         </div>
         <ul class="table-body">
           <% items.forEach((item) => { %>
-            <% if(item.flag !== 1){ %>
+            <% if(item.done === 0){ %>
               <li>
                 <div class="item-data">
                   <span class="id-column"><%= item.id %></span>
@@ -55,15 +55,15 @@
         </div>
         <ul class="table-body">
           <% items.forEach((item) => { %>
-            <% if(item.flag === 1){ %>
+            <% if(item.done === 1){ %>
               <li>
                 <div class="item-data">
                   <span class="id-column"><%= item.id %></span>
                   <span class="name-column"><%= item.name %></span>
                 </div>
                 <div class="item-menu">
-                  <form action="/done/<%= item.id %>" method="post">
-                    <input type="submit" value="完了">
+                  <form action="/return/<%= item.id %>" method="post">
+                    <input type="submit" value="戻す">
                   </form>
                   <form action="/delete/<%= item.id %>" method="post">
                     <input type="submit" value="削除">

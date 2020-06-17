@@ -77,8 +77,20 @@ app.post('/update/:id', (req, res) => {
 app.post('/done/:id', (req, res) => {
   console.log(req.params.id);
   connection.query(
-    'UPDATE items SET flag = ? WHERE id = ?',
+    'UPDATE items SET done = ? WHERE id = ?',
     ['1',req.params.id],
+    (error, results) => {
+      res.redirect('/index'); 
+    }
+  );
+});
+
+//return
+app.post('/return/:id', (req, res) => {
+  console.log(req.params.id);
+  connection.query(
+    'UPDATE items SET done = ? WHERE id = ?',
+    ['0',req.params.id],
     (error, results) => {
       res.redirect('/index'); 
     }
