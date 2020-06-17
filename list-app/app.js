@@ -74,12 +74,13 @@ app.post('/update/:id', (req, res) => {
 });
 
 //done
-app.get('/done/:id', (req, res) => {
+app.post('/done/:id', (req, res) => {
+  console.log(req.params.id);
   connection.query(
-    'INSERT INTO items(flag) VALUES(1) WHERE id = ?',
-    [req.param.id],
+    'UPDATE items SET flag = ? WHERE id = ?',
+    ['1',req.params.id],
     (error, results) => {
-      res.redirect('/index', {item: results[0]});
+      res.redirect('/index'); 
     }
   );
 });

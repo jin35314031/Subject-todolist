@@ -29,7 +29,7 @@
                   <span class="name-column"><%= item.name %></span>
                 </div>
                 <div class="item-menu">
-                  <form action="/done/<%= item.id %>" method="GET">
+                  <form action="/done/<%= item.id %>" method="post">
                     <input type="submit" value="完了">
                   </form>
                   <form action="/delete/<%= item.id %>" method="post">
