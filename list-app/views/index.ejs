@@ -52,6 +52,7 @@
         <div class="table-head">
           <span class="id-column">ID</span>
           <span>タスク</span>
+          <span>完了した時刻</span>
         </div>
         <ul class="table-body">
           <% items.forEach((item) => { %>
@@ -60,7 +61,7 @@
                 <div class="item-data">
                   <span class="id-column"><%= item.id %></span>
                   <span class="name-column"><%= item.name %></span>
-                  <span class="name-column"><%= item.donedate %></span>                  
+                  <span ><%= moment(item.doneDate).format("YYYY-MM-DD HH:mm:ss") %></span>                  
                 </div>
                 <div class="item-menu">
                   <form action="/return/<%= item.id %>" method="post">

@@ -1,8 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
-const date = require('date-utils');
+let moment = require('moment');
 const app = express();
-
+app.locals.moment = require('moment');
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
@@ -77,9 +77,10 @@ app.post('/update/:id', (req, res) => {
 
 //done
 app.post('/done/:id', (req, res) => {
+  const doneDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
   connection.query(
-    'UPDATE items SET done = ? WHERE id = ?',
-    ['1',req.params.id],
+    'UPDATE items SET done = ?, doneTime = ? WHERE id = ?',
+    ['1',doneDateTime,req.params.id],
     (error, results) => {
       res.redirect('/index'); 
     }
@@ -89,7 +90,7 @@ app.post('/done/:id', (req, res) => {
 //return
 app.post('/return/:id', (req, res) => {  
   connection.query(
-    'UPDATE items SET done = ? WHERE id = ?',
+    'UPDATE items SET done = ?, doneTime = NULL WHERE id = ?',
     ['0',req.params.id],
     (error, results) => {
       res.redirect('/index'); 
