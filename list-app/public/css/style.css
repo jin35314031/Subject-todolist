@@ -107,13 +107,13 @@ input {
 }
 
 .top-image {
-  width: 64%;
+  /*width: 80%;*/
   text-align: center;
   overflow: hidden;
 }
 
 .top-image img {
-  width: 88%;
+  width: 200px;
 }
 
 /* header ================================ */
