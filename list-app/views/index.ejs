@@ -27,6 +27,7 @@
                 <div class="item-data">
                   <span class="id-column"><%= item.id %></span>
                   <span class="name-column"><%= item.name %></span>
+                  <span ><%= moment(item.firstTime).format("YYYY-MM-DD HH:mm:ss") %></span>
                 </div>
                 <div class="item-menu">
                   <form action="/done/<%= item.id %>" method="post">
@@ -61,7 +62,7 @@
                 <div class="item-data">
                   <span class="id-column"><%= item.id %></span>
                   <span class="name-column"><%= item.name %></span>
-                  <span ><%= moment(item.doneDate).format("YYYY-MM-DD HH:mm:ss") %></span>                  
+                  <span ><%= moment(item.doneTime).format("YYYY-MM-DD HH:mm:ss") %></span>                  
                 </div>
                 <div class="item-menu">
                   <form action="/return/<%= item.id %>" method="post">
