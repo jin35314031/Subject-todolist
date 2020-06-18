@@ -8,14 +8,14 @@
   </head>
   <body>
     <header>
-      <a href="/" class="header-logo">LIST APP</a>
+      <a href="/" class="header-logo">Todo List</a>
     </header>
     <div class="container">
       <div class="container-header">
-        <h1>買い物リスト編集</h1>
+        <h1>タスク名編集</h1>
       </div>
       <div class="item-form-wrapper">
-        <p class="form-label">買うもの</p>
+        <p class="form-label">タスク名</p>
         <form action="/update/<%= item.id %>" method="post">
           <input type="text" name="itemName" value="<%= item.name %>">
           <input type="submit" value="更新する">
