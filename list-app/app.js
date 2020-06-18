@@ -1,6 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
+const date = require('date-utils');
 const app = express();
+
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
@@ -75,7 +77,6 @@ app.post('/update/:id', (req, res) => {
 
 //done
 app.post('/done/:id', (req, res) => {
-  console.log(req.params.id);
   connection.query(
     'UPDATE items SET done = ? WHERE id = ?',
     ['1',req.params.id],
@@ -86,8 +87,7 @@ app.post('/done/:id', (req, res) => {
 });
 
 //return
-app.post('/return/:id', (req, res) => {
-  console.log(req.params.id);
+app.post('/return/:id', (req, res) => {  
   connection.query(
     'UPDATE items SET done = ? WHERE id = ?',
     ['0',req.params.id],
