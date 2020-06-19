@@ -229,6 +229,7 @@ header {
   font-weight: 500;
   color: #8491a5;
   width: 160px;
+  margin-right: 10px;
 }
 
 .item-data {

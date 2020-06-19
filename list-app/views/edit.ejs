@@ -15,7 +15,7 @@
         <h1>タスク名編集</h1>
       </div>
       <div class="item-form-wrapper">
-        <p class="form-label">タスク名</p>
+        <p class="form-label">新しいタスク名</p>
         <form action="/update/<%= item.id %>" method="post">
           <input type="text" name="itemName" value="<%= item.name %>">
           <input type="submit" value="更新する">
